@@ -60,27 +60,27 @@ function App() {
               </svg> </span>
             </div>
             <div className='flex items-center ml-8'>
-              <input id="minmax-range" type="range" min="1" max="10" value={people} onChange={(e) => setPeople(parseInt(e.target.value))} className="w-full h-2 mr-1 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-200" />
+              <input id="minmax-range" type="range" min="1" max="10" value={people} onChange={(e) => setPeople(parseInt(e.target.value))} className="w-full h-2 mr-1 bg-gray-200 rounded-lg appearance-none dark:bg-gray-200" />
               <span className='w-6 text-center font-semibold text-md'>{people}</span>
             </div>
           </div>
         </div>
         <div className='flex justify-between'>
           <h3 className='font-semibold text-lg'>Propina por persona</h3>
-          <h3 className='font-semibold text-lg'>${getTipPerPerson()}</h3>
+          <h3 className='font-semibold text-lg'>${getTipPerPerson().toFixed(2)}</h3>
         </div>
         <div className='flex justify-between'>
           <h3 className='font-bold text-lg text-blue-500'>Total por persona</h3>
-          <h3 className='font-bold text-lg text-blue-500'>${getTotalPerPerson()}</h3>
+          <h3 className='font-bold text-lg text-blue-500'>${getTotalPerPerson().toFixed(2)}</h3>
         </div>
         <hr />
         <div className='flex justify-between'>
           <h3 className='font-semibold text-lg'>Propina total</h3>
-          <h3 className='font-semibold text-lg'>${getTotalTip()}</h3>
+          <h3 className='font-semibold text-lg'>${getTotalTip().toFixed(2)}</h3>
         </div>
         <div className='flex justify-between'>
           <h3 className='font-bold text-lg text-blue-500'>Total</h3>
-          <h3 className='font-bold text-lg text-blue-500'>${getTotal()}</h3>
+          <h3 className='font-bold text-lg text-blue-500'>${getTotal().toFixed(2)}</h3>
         </div>
       </div>
     </div >
