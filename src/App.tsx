@@ -60,7 +60,7 @@ function App() {
               </svg> </span>
             </div>
             <div className='flex items-center ml-8'>
-              <input id="minmax-range" type="range" min="1" max="10" value={people} onChange={(e) => setPeople(parseInt(e.target.value))} className="w-full h-2 mr-1 bg-gray-200 rounded-lg appearance-none dark:bg-gray-200" />
+              <input id="minmax-range" type="range" min="1" max="20" value={people} onChange={(e) => setPeople(parseInt(e.target.value))} className="w-full h-2 mr-1 bg-gray-200 rounded-lg appearance-none dark:bg-gray-200" />
               <span className='w-6 text-center font-semibold text-md'>{people}</span>
             </div>
           </div>
