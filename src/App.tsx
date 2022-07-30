@@ -25,7 +25,7 @@ function App() {
   }
 
   return (
-    <div className='absolute inset-0 flex justify-center items-center w-screen h-screen p-2' style={{ 'background': '#ffffff' }}>
+    <div className='flex justify-center items-center w-screen h-[80vh] md:h-screen p-2' style={{ 'background': '#ffffff' }}>
       <div style={{ 'background': '#fefefe' }} className='w-screen md:w-[32rem] lg:w-[32rem] px-7 lg:px-10 py-3 lg:py-5 flex flex-col gap-3 rounded-lg shadow-md'>
         <h1 className='text-center font-bold text-3xl text-blue-500'>Calcular propina</h1>
         <div className='flex flex-col gap-1'>
