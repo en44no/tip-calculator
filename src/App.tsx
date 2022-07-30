@@ -36,7 +36,7 @@ function App() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg> </span>
             </div>
-            <input id='quantity' type='number' min='0' className='border-none shadow-md rounded-lg h-8 pl-8 pr-2 w-full' value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} />
+            <input autoFocus id='quantity' type='number' min='0' className='border-none shadow-md rounded-lg h-8 pl-8 pr-2 w-full' value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} />
           </div>
         </div>
         <div className='flex flex-col gap-1'>
