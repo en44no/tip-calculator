@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import Social from './components/Social';
 
 function App() {
 
@@ -85,7 +86,8 @@ function App() {
           </div>
         </div>
       </div>
-    </div >
+      <Social />
+    </div>
   )
 }
 
