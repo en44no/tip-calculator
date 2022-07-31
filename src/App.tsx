@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Social from './components/Social';
+import { CurrencyDollarIcon, ChartPieIcon, UserCircleIcon } from '@heroicons/react/outline';
 
 function App() {
 
@@ -30,12 +31,10 @@ function App() {
       <div style={{ 'background': '#fefefe' }} className='w-screen md:w-[32rem] lg:w-[32rem] px-7 lg:px-10 py-3 lg:py-5 flex flex-col gap-3 rounded-lg shadow-md'>
         <h1 className='text-center font-bold text-3xl text-blue-500'>Calcular propina</h1>
         <div className='flex flex-col gap-1'>
-          <label htmlFor='quantity' className='block text-md font-medium text-gray-700'>Cantidad</label>
+          <label htmlFor='quantity' className='block text-md font-medium text-gray-700'>Cantidad a pagar</label>
           <div className='relative'>
             <div className="absolute inset-y-0 left-0 pl-1 flex items-center pointer-events-none">
-              <span className="font-bold text-gray-400 text-md"> <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg> </span>
+              <span className="font-bold text-gray-400 text-md"> <CurrencyDollarIcon className='h-6 w-6' /> </span>
             </div>
             <input autoFocus id='quantity' type='number' min='0' className='border-none shadow-md rounded-lg h-8 pl-8 pr-2 w-full' value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} />
           </div>
@@ -44,10 +43,7 @@ function App() {
           <label htmlFor='percentage' className='block text-md font-medium text-gray-700'>Porcentaje de propina</label>
           <div className='relative'>
             <div className="absolute inset-y-0 left-0 pl-1 flex items-center pointer-events-none">
-              <span className="font-bold text-gray-400 text-md"> <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
-              </svg> </span>
+              <span className="font-bold text-gray-400 text-md"> <ChartPieIcon className='h-6 w-6' /> </span>
             </div>
             <input id='percentage' type='number' min='0' className='border-none shadow-md rounded-lg h-8 pl-8 pr-2 w-full' value={tipPercentage} onChange={(e) => setTipPercentage(parseInt(e.target.value))} />
           </div>
@@ -56,9 +52,7 @@ function App() {
           <label htmlFor='people' className='block text-md font-medium text-gray-700'>Cantidad de personas</label>
           <div className='relative border-none shadow-md rounded-lg p-1 bg-white'>
             <div className="absolute inset-y-0 left-0 pl-1 flex items-center pointer-events-none">
-              <span className="font-bold text-gray-400 text-md"> <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg> </span>
+              <span className="font-bold text-gray-400 text-md"> <UserCircleIcon className='h-6 w-6' /> </span>
             </div>
             <div className='flex items-center ml-8'>
               <input id="people" type="range" min="1" max="20" value={people} onChange={(e) => setPeople(parseInt(e.target.value))} className="w-full h-2 mr-1 bg-gray-200 rounded-lg appearance-none dark:bg-gray-200" />
