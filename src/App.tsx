@@ -5,26 +5,45 @@ import { CurrencyDollarIcon, ChartPieIcon, UserCircleIcon } from '@heroicons/rea
 
 function App() {
 
-  const [quantity, setQuantity] = useState(0);
-  const [tipPercentage, setTipPercentage] = useState(0);
+  const [quantity, setQuantity] = useState('');
+  const [tipPercentage, setTipPercentage] = useState('');
   const [people, setPeople] = useState(1);
 
 
   const getTotal = () => {
-    return (quantity + getTotalTip() || 0);
+    return (parseInt(quantity) + getTotalTip() || 0);
   }
 
   const getTotalTip = () => {
-    return (quantity * tipPercentage / 100 || 0);
+    return (parseInt(quantity) * parseInt(tipPercentage) / 100 || 0);
   }
 
   const getTotalPerPerson = () => {
-    return (quantity + getTotalTip() || 0) / people;
+    return (parseInt(quantity) + getTotalTip() || 0) / people;
   }
 
   const getTipPerPerson = () => {
-    return ((quantity * (tipPercentage / 100)) / people) || 0;
+    return ((parseInt(quantity) * (parseInt(tipPercentage) / 100)) / people) || 0;
   }
+
+  const onInputChange = (e: any) => {
+    const value = e.target.value.replace(/\D/g, "");
+    switch (e.target.id) {
+      case 'quantity':
+        setQuantity(value);
+        break;
+      case 'percentage':
+        setTipPercentage(value);
+        break;
+      default: break;
+    }
+  }
+
+  const preventMinus = (e: any) => {
+    if (e.code === 'Minus') {
+      e.preventDefault();
+    }
+  };
 
   return (
     <div className='flex justify-center items-center w-screen h-[80vh] md:h-screen p-2' style={{ 'background': '#ffffff' }}>
@@ -36,7 +55,7 @@ function App() {
             <div className="absolute inset-y-0 left-0 pl-1 flex items-center pointer-events-none">
               <span className="font-bold text-gray-400 text-md"> <CurrencyDollarIcon className='h-6 w-6' /> </span>
             </div>
-            <input autoFocus id='quantity' type='number' min='0' className='border-none shadow-md rounded-lg h-8 pl-8 pr-2 w-full' value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} />
+            <input autoFocus id='quantity' type='number' min='0' className='border-none shadow-md rounded-lg h-8 pl-8 pr-2 w-full' value={quantity} onKeyPress={preventMinus} onChange={onInputChange} />
           </div>
         </div>
         <div className='flex flex-col gap-1'>
@@ -45,7 +64,7 @@ function App() {
             <div className="absolute inset-y-0 left-0 pl-1 flex items-center pointer-events-none">
               <span className="font-bold text-gray-400 text-md"> <ChartPieIcon className='h-6 w-6' /> </span>
             </div>
-            <input id='percentage' type='number' min='0' className='border-none shadow-md rounded-lg h-8 pl-8 pr-2 w-full' value={tipPercentage} onChange={(e) => setTipPercentage(parseInt(e.target.value))} />
+            <input id='percentage' type='number' min='0' className='border-none shadow-md rounded-lg h-8 pl-8 pr-2 w-full' value={tipPercentage} onKeyPress={preventMinus} onChange={onInputChange} />
           </div>
         </div>
         <div className='flex flex-col gap-1'>
@@ -55,7 +74,7 @@ function App() {
               <span className="font-bold text-gray-400 text-md"> <UserCircleIcon className='h-6 w-6' /> </span>
             </div>
             <div className='flex items-center ml-8'>
-              <input id="people" type="range" min="1" max="20" value={people} onChange={(e) => setPeople(parseInt(e.target.value))} className="w-full h-2 mr-1 bg-gray-200 rounded-lg appearance-none dark:bg-gray-200" />
+              <input id="people" type="range" min="1" max="20" className="w-full h-2 mr-1 bg-gray-200 rounded-lg appearance-none dark:bg-gray-200" value={people} onChange={(e) => setPeople(parseInt(e.target.value))} />
               <span className='w-6 text-center font-semibold text-md'>{people}</span>
             </div>
           </div>
@@ -85,4 +104,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
